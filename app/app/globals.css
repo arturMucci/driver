@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-size-360: 13px;
+  --font-size-640: 16px;
+  --font-size-768: 18px;
+  --font-size-1024: 20px;
+  --font-size-1280: 22px;
+  --font-size-1536: 24px;
+  --font-size-1920: 26px;
+  --font-size-2560: 30px;
+  --bg-light: #efefef;
+  --bg-dark: #707070;
+  --clr: #58bc82;
+  --clr-alpha: #9c9c9c60;
+}
+
+html {
+  font-size: var(--font-size-360);
+}
+
+@media (min-width: 360px) and (max-width: 639px) {
+  html {
+    font-size: clamp(
+      var(--font-size-360),
+      calc(13px + (3 * (100vw - 360px) / 279)),
+      var(--font-size-640)
+    );
+  }
+}
+
+@media (min-width: 640px) and (max-width: 767px) {
+  html {
+    font-size: clamp(
+      var(--font-size-640),
+      calc(16px + (2 * (100vw - 640px) / 127)),
+      var(--font-size-768)
+    );
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  html {
+    font-size: clamp(
+      var(--font-size-768),
+      calc(18px + (2 * (100vw - 768px) / 255)),
+      var(--font-size-1024)
+    );
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  html {
+    font-size: clamp(
+      var(--font-size-1024),
+      calc(20px + (2 * (100vw - 1024px) / 255)),
+      var(--font-size-1280)
+    );
+  }
+}
+
+@media (min-width: 1280px) and (max-width: 1535px) {
+  html {
+    font-size: clamp(
+      var(--font-size-1280),
+      calc(22px + (2 * (100vw - 1280px) / 255)),
+      var(--font-size-1536)
+    );
+  }
+}
+
+@media (min-width: 1536px) and (max-width: 1919px) {
+  html {
+    font-size: clamp(
+      var(--font-size-1536),
+      calc(24px + (2 * (100vw - 1536px) / 383)),
+      var(--font-size-1920)
+    );
+  }
+}
+
+@media (min-width: 1920px) and (max-width: 2559px) {
+  html {
+    font-size: clamp(
+      var(--font-size-1920),
+      calc(26px + (2 * (100vw - 1920px) / 2560)),
+      var(--font-size-1920)
+    );
+  }
+}
+
+@media (min-width: 2560px) {
+  html {
+    font-size: clamp(
+      var(--font-size-1920),
+      calc(30px + (2 * (100vw - 2560px) / 2560)),
+      var(--font-size-2560)
+    );
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
