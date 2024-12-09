@@ -20,7 +20,6 @@ app/node_modules/
 
 # Docker
 database/
-docker-compose.yaml
 
 # Next.js
 .next/

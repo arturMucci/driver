@@ -1,0 +1,54 @@
+services:
+  postgres:
+    image: postgres:17.2
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - ${POSTGRES_PORT}:${POSTGRES_PORT}
+    volumes:
+      - ./database:/var/lib/postgresql/data
+    networks:
+      - network
+
+  api:
+    env_file:
+      - .env
+    build:
+      context: ./api
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+      GOOGLE_API_KEY: ${GOOGLE_API_KEY}
+    ports:
+      - ${API_PORT}:${API_PORT}
+    volumes:
+      - ./api:/api
+    depends_on:
+      - postgres
+    networks:
+      - network
+
+  app:
+    build:
+      context: ./app
+    environment:
+      GOOGLE_API_KEY: ${GOOGLE_API_KEY}
+    ports:
+      - ${APP_PORT}:${VITE_PORT}
+    volumes:
+      - ./app:/app
+    working_dir: /app
+    command: npm run dev
+    depends_on:
+      - api
+    networks:
+      - network
+
+volumes:
+  driver-data:
+
+networks:
+  network:
+    driver: bridge
