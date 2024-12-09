@@ -8,11 +8,11 @@
 
 ## Running the project
 
-### First you need to clone the project on you preferable directory using the following command:
+### 1 - Clone the project on you preferable directory using the following command:
 
 `git clone git@github.com:arturMucci/driver.git`
 
-### Second you need to create a `.env` file in the root of the project with the following variables:
+### 2- Create a `.env` file in the root of the project with the following variables:
 
 #### GOOGLE_API_KEY
 
