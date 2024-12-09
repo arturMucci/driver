@@ -68,7 +68,7 @@ The url that will be used to connect to the postgres database. It must have the 
 
 #### Open the terminal and run the following command:
 
-`docker-compose up -d`
+`docker-compose down -d`
 
 ## Swagger
 
