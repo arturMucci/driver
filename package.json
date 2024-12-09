@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "docker-reset": "docker-compose down -v --remove-orphans; sudo rm -rf ./backend/src/prisma/migrations driver-db; docker rmi postgres:17.2 driver-app:latest driver-api:latest; docker system prune -f",
+    "docker-up": "docker-compose up --build",
+    "docker-reset": "docker-compose down -v --remove-orphans; sudo rm -rf ./api/src/prisma/migrations driver-db; docker rmi postgres:17.2 driver-app:latest driver-api:latest; docker system prune -f",
     "docker-reboot": "npm run docker-reset && docker-compose up --build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
