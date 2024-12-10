@@ -30,16 +30,16 @@ services:
     networks:
       - network
 
-  app:
+  frontend:
     build:
-      context: ./app
+      context: ./frontend
     environment:
       GOOGLE_API_KEY: ${GOOGLE_API_KEY}
     ports:
       - ${APP_PORT}:${VITE_PORT}
     volumes:
-      - ./app:/app
-    working_dir: /app
+      - ./frontend:/frontend
+    working_dir: /frontend
     command: npm run dev
     depends_on:
       - api

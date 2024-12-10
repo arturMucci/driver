@@ -2,7 +2,7 @@
 import ErrorToast from "./components/ErrorToast";
 import { useEstimateForm } from "./hooks/useEstimate.context";
 import { IFormEvent } from "./interfaces";
-import { redirect } from "next/navigation";
+// import { redirect } from "next/navigation";
 
 export default function Home() {
   const {
@@ -26,6 +26,9 @@ export default function Home() {
 
     const resData = await response.json();
 
+    console.log({ customer_id: customerId, origin, destination });
+    console.log(await resData);
+
     if (resData.status_code === 400) {
       setResData(resData);
       setMessage(resData.error_description);
@@ -35,11 +38,11 @@ export default function Home() {
       }, 3000);
     }
 
-    redirect("/confirm");
+    // redirect("/confirm");
   }
 
   return (
-    <main className="flex flex-col relative items-center justify-center bg-[#efefef] grow">
+    <main className="flex flex-col relative items-center justify-center bg-[#494949] grow">
       <div className="flex flex-col gap-[1rem]">
         <form className="flex flex-col items-center gap-[2rem] w-fit rounded-md py-[0.5rem] px-[1rem] shadow-[0rem_0.3rem_0.5rem_0_rgb(150,150,150)]">
           <div className="flex flex-col gap-[1rem]">
